@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from "./Loading.js";
-import {Alert, TouchableHighlightBase} from "react-native";
+import {Alert} from "react-native";
 import * as Location from "expo-location";
 import axios from "axios";
 import Weather from "./Weather.js";
