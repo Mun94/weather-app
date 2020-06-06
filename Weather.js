@@ -32,7 +32,7 @@ const weatherOptions = {
     Atmosphere: {
       iconName: "weather-hail",
       gradient: ["#89F7FE", "#66A6FF"],
-      tile: "hail",
+      title: "hail",
       subtitle:"hail.."
     },
     Clear: {
