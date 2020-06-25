@@ -8,44 +8,38 @@ const weatherOptions = {
     Thunderstorm: {
       iconName: "weather-lightning",
       gradient: ["#373B44", "#4286f4"],
-      title: "lightning",
-      subtitle: "lightning.."
+      title: "Thunderstorm",
+      subtitle: "Lightning.."
     },
     Drizzle: {
       iconName: "weather-hail",
       gradient: ["#89F7FE", "#66A6FF"],
-      title: "hail",
+      title: "Drizzle",
       subtitle: "hail.."
     },
     Rain: {
       iconName: "weather-rainy",
       gradient: ["#00C6FB", "#005BEA"],
-      title: "rainy",
-      subtitle: "rainy.."
+      title: "Rain",
+      subtitle: "Rainy.."
     },
     Snow: {
       iconName: "weather-snowy",
       gradient: ["#7DE2FC", "#B9B6E5"],
-      title: "snowy",
-      subtitle: "snowy.."
-    },
-    Atmosphere: {
-      iconName: "weather-hail",
-      gradient: ["#89F7FE", "#66A6FF"],
-      title: "hail",
-      subtitle:"hail.."
+      title: "Snow",
+      subtitle: "Snowy.."
     },
     Clear: {
       iconName: "weather-sunny",
       gradient: ["#FF7300", "#FEF253"],
-      title: "sunny",
-      subtitle: "sunny.."
+      title: "Sunny",
+      subtitle: "Sunny.."
     },
     Clouds: {
       iconName: "weather-cloudy",
       gradient: ["#D7D2CC", "#304352"],
-      title: "cloudy",
-      subtitle: "cloudy.."
+      title: "Clouds",
+      subtitle: "Cloudy.."
     },
     Mist: {
       iconName: "weather-hail",
@@ -56,7 +50,7 @@ const weatherOptions = {
     Dust: {
       iconName: "weather-hail",
       gradient: ["#4DA0B0", "#D39D38"],
-      title: "Dusty",
+      title: "Dust",
       subtitle: "Dusty.."
     },
     Haze: {
@@ -67,8 +61,11 @@ const weatherOptions = {
     }
   };
 
-export default function Weather({temp, condition}){
+export default function Weather({temp, condition, name}){
     return(
+            <>
+            <Text 
+            style={styles.location}>위치 : {name}</Text>
             <LinearGradient
                 colors={weatherOptions[condition].gradient}
                 style={styles.container}
@@ -80,13 +77,14 @@ export default function Weather({temp, condition}){
                     name={weatherOptions[condition].iconName}
                     color="white"
                 />
-                <Text style={styles.temp}>{temp}도</Text>
+                <Text style={styles.temp}>{temp} 도</Text>
             </View>
             <View style={styles.halfContainer, styles.textContainer}>
             <Text style={styles.title}>{weatherOptions[condition].title}</Text>
             <Text style={styles.subtitle}>{weatherOptions[condition].subtitle}</Text>
             </View>
             </LinearGradient>
+            </>
     );
 }
 
@@ -97,7 +95,6 @@ Weather.propTypes = {
         "Drizzle",
         "Rain",
         "Snow",
-        "Atmosphere",
         "Clear",
         "Clouds",
         "Haze",
@@ -124,16 +121,22 @@ const styles = StyleSheet.create({
     title:{
         color:"white",
         fontSize:44,
-        fontWeight:"300",
-        marginBottom:10
+        fontWeight:"600",
+        marginBottom:20
     },
     subtitle:{
-        fontWeight:"600",
+        fontWeight:"300",
         color:"white",
-        fontSize:24
+        fontSize:24,
+        marginBottom:150
     },
     textContainer:{
         paddingHorizontal:20,
         alignItems:"flex-start"
+    },
+    location:{
+      color:"black",
+      backgroundColor : "rgba(0,0,0,0.3)",
+      fontSize : 20
     }
 })
