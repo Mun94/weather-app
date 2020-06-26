@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "weather-app",
-    "slug": "weather-app",
+    "name": "weather_app",
+    "slug": "weather_app",
     "platforms": [
       "ios",
       "android",
